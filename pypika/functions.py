@@ -219,6 +219,16 @@ class Lower(Function):
         super(Lower, self).__init__("LOWER", term, alias=alias)
 
 
+class Left(Function):
+    def __init__(self, term, count, alias=None):
+        super(Left, self).__init__("LEFT", term, count, alias=alias)
+
+
+class Right(Function):
+    def __init__(self, term, count, alias=None):
+        super(Right, self).__init__("RIGHT", term, count, alias=alias)
+
+
 class Substring(Function):
     def __init__(self, term, start, stop, alias=None):
         super(Substring, self).__init__("SUBSTRING", term, start, stop, alias=alias)
