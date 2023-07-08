@@ -555,6 +555,26 @@ class StringTests(unittest.TestCase):
 
         self.assertEqual('SELECT LOWER("foo") FROM "abc"', str(q))
 
+    def test__left__str(self):
+        q = Q.select(fn.Left("ABC", 2))
+
+        self.assertEqual("SELECT LEFT('ABC', 2)", str(q))
+
+    def test__left__field(self):
+        q = Q.from_(self.t).select(fn.Left(self.t.foo, 2))
+
+        self.assertEqual('SELECT LEFT("foo", 2) FROM "abc"', str(q))
+
+    def test__right__str(self):
+        q = Q.select(fn.Right("ABC", 2))
+
+        self.assertEqual("SELECT RIGHT('ABC', 2)", str(q))
+
+    def test__right__field(self):
+        q = Q.from_(self.t).select(fn.Right(self.t.foo, 2))
+
+        self.assertEqual('SELECT RIGHT("foo", 2) FROM "abc"', str(q))
+
     def test__length__str(self):
         q = Q.select(fn.Length("ABC"))
 
